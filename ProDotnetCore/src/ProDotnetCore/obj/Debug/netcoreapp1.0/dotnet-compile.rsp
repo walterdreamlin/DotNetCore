@@ -1,5 +1,5 @@
---temp-output:E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\
---out:E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\bin\Debug\netcoreapp1.0\ProDotnetCore.dll
+--temp-output:E:\Code\git\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\
+--out:E:\Code\git\ProDotnetCore\src\ProDotnetCore\bin\Debug\netcoreapp1.0\ProDotnetCore.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -196,7 +196,9 @@
 --reference:C:\Users\MerLin\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\MerLin\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\MerLin\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\ProDotnetCoredotnet-compile.deps.json",ProDotnetCore.deps.json
-E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\Program.cs
-E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\Startup.cs
-E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\Controllers\HomeController.cs
+--resource:"E:\Code\git\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\ProDotnetCoredotnet-compile.deps.json",ProDotnetCore.deps.json
+E:\Code\git\ProDotnetCore\src\ProDotnetCore\Program.cs
+E:\Code\git\ProDotnetCore\src\ProDotnetCore\Startup.cs
+E:\Code\git\ProDotnetCore\src\ProDotnetCore\Controllers\HomeController.cs
+E:\Code\git\ProDotnetCore\src\ProDotnetCore\Models\GuestResponse.cs
+E:\Code\git\ProDotnetCore\src\ProDotnetCore\Models\Repository.cs

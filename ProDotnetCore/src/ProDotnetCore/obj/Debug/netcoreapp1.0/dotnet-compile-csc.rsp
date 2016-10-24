@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\bin\Debug\netcoreapp1.0\ProDotnetCore.dll"
+"E:\Code\git\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"E:\Code\git\ProDotnetCore\src\ProDotnetCore\bin\Debug\netcoreapp1.0\ProDotnetCore.dll"
 -r:"C:\Users\MerLin\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
 -r:"C:\Users\MerLin\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll"
 -r:"C:\Users\MerLin\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
@@ -192,7 +192,9 @@
 -r:"C:\Users\MerLin\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\MerLin\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\MerLin\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
--resource:"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\ProDotnetCoredotnet-compile.deps.json",ProDotnetCore.deps.json
-"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\Program.cs"
-"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\Startup.cs"
-"E:\Code\Projects\ProDotnetCore\src\ProDotnetCore\Controllers\HomeController.cs"
+-resource:"E:\Code\git\ProDotnetCore\src\ProDotnetCore\obj\Debug\netcoreapp1.0\ProDotnetCoredotnet-compile.deps.json",ProDotnetCore.deps.json
+"E:\Code\git\ProDotnetCore\src\ProDotnetCore\Program.cs"
+"E:\Code\git\ProDotnetCore\src\ProDotnetCore\Startup.cs"
+"E:\Code\git\ProDotnetCore\src\ProDotnetCore\Controllers\HomeController.cs"
+"E:\Code\git\ProDotnetCore\src\ProDotnetCore\Models\GuestResponse.cs"
+"E:\Code\git\ProDotnetCore\src\ProDotnetCore\Models\Repository.cs"

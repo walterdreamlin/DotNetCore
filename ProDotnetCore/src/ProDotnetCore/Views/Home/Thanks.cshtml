@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ProDotnetCore.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div>
+        <h1>Thank you,@Model.Name!</h1>
+        @if (Model.WillAttend == true)
+        {
+            @:It's great that you are coming.
+
+        }
+        else
+        {
+            @:Sorry to hear that you can not make it.
+
+        }
+    </div>
+    <p>Click <a asp-action="ListResponses">here</a>to see who is coming.</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ProDotnetCore.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div>
+        This is the RsvpForm.cshtml View
+    </div>
+    <form  asp-action="RsvpForm">
+        <p>
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name" />
+        </p>
+        <p>
+            <label asp-for="Email">Email:</label>
+            <input asp-for="Email" />
+        </p>
+        <p>
+            <label asp-for="Phone">Phone:</label>
+            <input asp-for="Phone" />
+        </p>
+        <p>
+            <label asp-for="WillAttend">Will you attend?</label>
+            <select asp-for="WillAttend">
+                <option value="">Choose an option</option>
+                <option value="true">Yes, I'll be there</option>
+                <option value="false">No, I can't come</option>
+            </select>
+        </p>
+        <button type="submit">Submit RSVP</button>
+    </form>
+</body>
+</html>

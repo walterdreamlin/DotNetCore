@@ -246,3 +246,6 @@ ModelManifest.xml
 
 
 .vs/
+/SportsStore/src/SportsStore/wwwroot/lib/jquery-validation
+/SportsStore/src/SportsStore/wwwroot/lib/jquery-validation-unobtrusive
+/SportsStore/src/SportsStore/wwwroot/lib/jquery-validation-1.15.0.zip

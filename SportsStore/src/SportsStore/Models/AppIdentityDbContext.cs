@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SportsStore.Models
 {
-    public class AppIdentityDbContext:IdetityDbContext<IdentityUser>
+    public class AppIdentityDbContext : IdentityDbContext<IdentityUser>
     {
         public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : base(options) { }
     }

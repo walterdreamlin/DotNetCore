@@ -33,12 +33,11 @@ namespace SportsStore
                 Configuration["Data:SportStoreProducts:ConnectionString"]));
             //services.AddTransient<IProductRepository, FakeProductRepository>();
 
-            services.AddDbContext<ApplicationDBContext>(options =>
-            options.UseSqlServer(
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(
                 Configuration["Data:SportStoreIdentity:ConnectionString"]));
-
             services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppIdentityDbContext>();
+            .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));

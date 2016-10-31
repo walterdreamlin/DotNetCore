@@ -72,7 +72,7 @@
 
   "publishOptions": {
     "include": [
-      "wwwroot",
+      "wwwroot","Views","appsettings.json","appsettings.production.json",
       "web.config"
     ]
   },

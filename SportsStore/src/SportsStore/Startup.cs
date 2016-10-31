@@ -22,7 +22,9 @@ namespace SportsStore
         public Startup(IHostingEnvironment env)
         {
             Configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json").Build();
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json",true)
+                .Build();
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
@@ -51,14 +53,18 @@ namespace SportsStore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
+            //loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
             }
 
-            app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
             app.UseIdentity();
@@ -73,6 +79,10 @@ namespace SportsStore
                 //routes.MapRoute(
                 //    name:"default",
                 //    template:"{controller=Product}/{action=List}/{id?}");
+                routes.MapRoute(name: "Error", template: "Error",
+                    defaults: new { controller = "Error", action = "Error" });
+
+
                 routes.MapRoute(
                     name: null,
                     template: "{category}/Page{page:int}",

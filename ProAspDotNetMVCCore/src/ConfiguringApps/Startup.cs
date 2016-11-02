@@ -8,12 +8,22 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ConfiguringApps.Infranstructure;
+using Microsoft.Extensions.Configuration;
 
 
 namespace ConfiguringApps
 {
     public class Startup
     {
+        public Startup(IHostingEnvironment env)
+        {
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json")
+                .Build();
+        }
+
+        public IConfigurationRoot Configuration { get; set; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -27,19 +37,33 @@ namespace ConfiguringApps
         {
             //if (env.IsDevelopment())
             //{
-            //}
+            //}ShortCiruitMiddleware
 
-            loggerFactory.AddConsole(LogLevel.Debug);
+            if (Configuration.GetSection("ShortCircuitMiddleware")?["EnableBrowserShortCircuit"] == "True")
+            {
+                app.UseMiddleware<BrowserTypeMiddleware>();
+                app.UseMiddleware<ShortCircuitMiddleware>();
+            }
+
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug(LogLevel.Debug);
             if (env.IsEnvironment("Development"))
             {
-                app.UseMiddleware<ErrorMiddleware>();
-                app.UseMiddleware<BrowserTypeMiddleware>();
-                app.UseMiddleware<ShortCircuitMiddleware>();
-                app.UseMiddleware<ContentMiddleware>();
+                //app.UseMiddleware<ErrorMiddleware>();
+                //app.UseMiddleware<BrowserTypeMiddleware>();
+                //app.UseMiddleware<ShortCircuitMiddleware>();
+                //app.UseMiddleware<ContentMiddleware>();
                 
                 app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+                app.UseBrowserLink();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            app.UseStaticFiles();
 
             app.UseMvc(routes=> {
                 routes.MapRoute(

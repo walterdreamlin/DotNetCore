@@ -6,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace ConfiguringApps.Infranstructure
 {
-    public class ShortCircuitMiddleware
+    public class BrowserTypeMiddleware
     {
         private RequestDelegate nextDelegate;
-
-        public ShortCircuitMiddleware(RequestDelegate next)
+        public BrowserTypeMiddleware(RequestDelegate next)
         {
             nextDelegate = next;
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
-            if(httpContext.Items["IEBrowser"] as bool? == true)  
-            {
-                httpContext.Response.StatusCode = 403;
-            }
-            else
-            {
-                await nextDelegate.Invoke(httpContext);
-            }
+            httpContext.Items["IEBrowser"] = httpContext.Request.Headers["User-Agent"].Any(v => v.ToLower().Contains("trident")||v.ToLower().Contains("edge"));
+            await nextDelegate.Invoke(httpContext);
         }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ConfiguringApps.Infranstructure;
 
+
 namespace ConfiguringApps
 {
     public class Startup
@@ -24,16 +25,28 @@ namespace ConfiguringApps
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseMiddleware<ContentMiddleware>();
-            loggerFactory.AddConsole();
+            //if (env.IsDevelopment())
+            //{
+            //}
 
-            if (env.IsDevelopment())
+            loggerFactory.AddConsole(LogLevel.Debug);
+            loggerFactory.AddDebug(LogLevel.Debug);
+            if (env.IsEnvironment("Development"))
             {
+                app.UseMiddleware<ErrorMiddleware>();
+                app.UseMiddleware<BrowserTypeMiddleware>();
+                app.UseMiddleware<ShortCircuitMiddleware>();
+                app.UseMiddleware<ContentMiddleware>();
+                
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseMvc();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes=> {
+                routes.MapRoute(
+                    name:"default",
+                    template:"{controller=Home}/{action=Index}/{id?}");
+            });
+            //app.UseMvcWithDefaultRoute();
 
             //app.Run(async (context) =>
             //{

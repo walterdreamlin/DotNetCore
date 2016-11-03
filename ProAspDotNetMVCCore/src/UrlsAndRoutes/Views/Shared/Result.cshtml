@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Result
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Routing</title>
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+</head>
+<body class="card">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>Controller:</td>
+            <td>@Model.Controller</td>
+        </tr>
+        <tr>
+            <td>Action:</td>
+            <td>@Model.Action</td>
+        </tr>
+        @foreach(string key in Model.Data.Keys)
+        {
+            <tr>
+                <td>@key:</td>
+                <td>@Model.Data[key]</td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
